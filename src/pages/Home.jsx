@@ -5,24 +5,20 @@ function Home() {
   const navigate = useNavigate();
 
   return (
-    <div className="h-screen flex items-center justify-center bg-gray-200">
+    <div className="min-h-screen flex items-center justify-center bg-gray-200">
       
-      <div className="w-[375px] h-[812px] bg-white rounded-3xl shadow-xl flex flex-col">
+      <div className="w-[375px] h-[812px] bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col justify-end">
 
-        {/* Empty top space */}
-        <div className="flex-1"></div>
+        <div className="px-6 pb-10">
 
-        {/* Bottom Content */}
-        <div className="px-6 pb-8">
-
-          <h2 className="text-2xl font-semibold text-gray-900">
+          <h2 className="text-[22px] font-semibold text-gray-900">
             Welcome to PopX
           </h2>
 
-          <p className="text-gray-500 mt-3">
+          <p className="text-gray-500 mt-3 text-sm leading-6">
             Lorem ipsum dolor sit amet,
           </p>
-          <p className="text-gray-500">
+          <p className="text-gray-500 text-sm leading-6">
             consectetur adipiscing elit,
           </p>
 
@@ -30,14 +26,14 @@ function Home() {
             
             <button
               onClick={() => navigate("/register")}
-              className="bg-gradient-to-r from-purple-600 to-purple-500 text-white py-3 rounded-lg font-medium"
+              className="w-full py-3 rounded-lg text-white font-medium bg-gradient-to-r from-purple-600 to-purple-500"
             >
               Create Account
             </button>
 
             <button
               onClick={() => navigate("/login")}
-              className="bg-purple-200 text-purple-800 py-3 rounded-lg font-medium"
+              className="w-full py-3 rounded-lg font-medium bg-purple-200 text-purple-800"
             >
               Already Registered? Login
             </button>
