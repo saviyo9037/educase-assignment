@@ -9,7 +9,7 @@ function Home() {
       
       <div className="w-[375px] h-full max-h-[812px] bg-white rounded-3xl shadow-xl flex flex-col justify-end overflow-hidden">
 
-        <div className="px-6 pb-8">
+        <div className="px-6 pb-10">
 
           <h2 className="text-[22px] font-semibold text-gray-900">
             Welcome to PopX
