@@ -7,7 +7,7 @@ function Home() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       
-      <div className="w-[375px] h-[812px] bg-white rounded-3xl shadow-xl flex flex-col justify-end px-6 pb-10">
+      <div className="w-[375px] min-h-[812px] bg-white rounded-3xl shadow-xl flex flex-col justify-end px-6 pb-8">
 
         <h2 className="text-2xl font-semibold text-gray-900">
           Welcome to PopX
