@@ -15,8 +15,9 @@ function Register() {
   });
 
   return (
-    <div className="min-h-[100dvh] flex items-center bg-white justify-center ">
-      <div className="w-[375px] h-[812px]    flex bg-gray-100 flex-col overflow-hidden">
+    <div className="min-h-[100dvh] flex justify-center bg-white">
+      <div className="w-[375px] h-[812px] flex bg-gray-100 flex-col overflow-hidden">
+
         <div className="flex-1 overflow-y-auto px-6 pt-8">
           <h1 className="text-[30px] font-bold text-gray-900 leading-10 mb-10">
             Create your <br /> PopX account
@@ -33,106 +34,103 @@ function Register() {
             }}
             validationSchema={validationSchema}
             onSubmit={(values) => {
+              localStorage.setItem("user", JSON.stringify(values));
               navigate("/account", { state: values });
             }}
           >
             {() => (
-              <Form className="space-y-5">
+              <Form className="space-y-6">
+
+                {/* Full Name */}
                 <div className="relative">
-                  <label className="absolute -top-2 left-3 bg-gray-100 px-1 text-[14px] font-[500] text-purple-600">
+                  <label className="absolute -top-2 left-3 bg-gray-100 px-1 text-[12px] font-[500] text-purple-600">
                     Full Name*
                   </label>
                   <Field
                     name="fullName"
-                    className="w-full mt-1 px-4 py-3 border rounded-lg text-sm border-gray-300 focus:ring-2 focus:ring-purple-500 outline-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg text-[14px] focus:outline-none focus:border-purple-600"
                   />
-                  <ErrorMessage
-                    name="fullName"
-                    component="div"
-                    className="text-red-500 text-xs mt-1"
-                  />
+                  <ErrorMessage name="fullName" component="div" className="text-red-500 text-xs mt-1" />
                 </div>
 
+                {/* Phone */}
                 <div className="relative">
-                  <label className="absolute -top-2 left-3 bg-gray-100 px-1 text-[14px] font-[500] text-purple-600">
+                  <label className="absolute -top-2 left-3 bg-gray-100 px-1 text-[12px] font-[500] text-purple-600">
                     Phone number*
                   </label>
                   <Field
                     name="phone"
-                    className="w-full mt-1 px-4 py-3 border rounded-lg text-sm border-gray-300 focus:ring-2 focus:ring-purple-500 outline-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg text-[14px] focus:outline-none focus:border-purple-600"
                   />
                 </div>
 
+                {/* Email */}
                 <div className="relative">
-                  <label className="absolute -top-2 left-3 bg-gray-100 px-1 text-[14px] font-[500] text-purple-600">
+                  <label className="absolute -top-2 left-3 bg-gray-100 px-1 text-[12px] font-[500] text-purple-600">
                     Email address*
                   </label>
                   <Field
                     name="email"
                     type="email"
-                    className="w-full mt-1 px-4 py-3 border rounded-lg text-sm border-gray-300 focus:ring-2 focus:ring-purple-500 outline-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg text-[14px] focus:outline-none focus:border-purple-600"
                   />
                 </div>
 
+                {/* Password */}
                 <div className="relative">
-                  <label className="absolute -top-2 left-3 bg-gray-100 px-1 text-[14px] font-[500] text-purple-600">
+                  <label className="absolute -top-2 left-3 bg-gray-100 px-1 text-[12px] font-[500] text-purple-600">
                     Password*
                   </label>
                   <Field
                     name="password"
                     type="password"
-                    className="w-full mt-1 px-4 py-3 border rounded-lg text-sm border-gray-300 focus:ring-2 focus:ring-purple-500 outline-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg text-[14px] focus:outline-none focus:border-purple-600"
                   />
                 </div>
 
+                {/* Company */}
                 <div className="relative">
-                  <label className="absolute -top-2 left-3 bg-gray-100 px-1 text-[14px] font-[500] text-purple-600">
+                  <label className="absolute -top-2 left-3 bg-gray-100 px-1 text-[12px] font-[500] text-purple-600">
                     Company name
                   </label>
                   <Field
                     name="company"
-                    className="w-full mt-1 px-4 py-3 border rounded-lg text-sm border-gray-300 focus:ring-2 focus:ring-purple-500 outline-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg text-[14px] focus:outline-none focus:border-purple-600"
                   />
                 </div>
 
-                <div className="relative">
+                {/* Agency */}
+                <div>
                   <label className="text-[14px] font-[500] text-gray-700">
                     Are you an Agency?*
                   </label>
+
                   <div className="flex items-center gap-6 mt-3">
-                    <label className="flex items-center gap-2 text-sm">
-                      <Field
-                        type="radio"
-                        name="agency"
-                        value="Yes"
-                        className="accent-purple-600"
-                      />
+                    <label className="flex items-center gap-2 text-[14px]">
+                      <Field type="radio" name="agency" value="Yes" className="accent-purple-600" />
                       Yes
                     </label>
 
-                    <label className="flex items-center gap-2 text-sm">
-                      <Field
-                        type="radio"
-                        name="agency"
-                        value="No"
-                        className="accent-purple-600"
-                      />
+                    <label className="flex items-center gap-2 text-[14px]">
+                      <Field type="radio" name="agency" value="No" className="accent-purple-600" />
                       No
                     </label>
                   </div>
                 </div>
+
+                {/* Submit Button */}
+                <div className="pt-6">
+                  <button
+                    type="submit"
+                    className="w-full py-3 rounded-lg text-white font-medium bg-[#9249e7]"
+                  >
+                    Create Account
+                  </button>
+                </div>
+
               </Form>
             )}
           </Formik>
-        </div>
-
-        <div className="px-6 pb-6 pt-3">
-          <button
-            onClick={() => navigate("/account")}
-            className="w-full py-3 rounded-lg text-white font-medium bg-gradient-to-r bg-[#9249e7]"
-          >
-            Create Account
-          </button>
         </div>
       </div>
     </div>
