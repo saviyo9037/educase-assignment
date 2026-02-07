@@ -5,11 +5,23 @@ function Home() {
   const navigate = useNavigate();
 
   return (
-    <div className="h-screen flex items-center justify-center bg-gray-200 overflow-hidden">
-      
-      <div className="w-[375px] h-full max-h-[812px] bg-white rounded-3xl shadow-xl flex flex-col justify-end overflow-hidden">
+    <div className="min-h-screen bg-gray-200 flex justify-center">
 
-        <div className="px-6 pb-8">
+   
+      <div className="
+        w-full 
+        sm:w-[375px] 
+        min-h-screen 
+        sm:min-h-[812px] 
+        bg-white 
+        sm:rounded-3xl 
+        sm:shadow-xl 
+        flex 
+        flex-col 
+        justify-end
+      ">
+
+        <div className="px-6 pb-10">
 
           <h2 className="text-[22px] font-semibold text-gray-900">
             Welcome to PopX
