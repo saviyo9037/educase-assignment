@@ -15,11 +15,10 @@ function Register() {
   });
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-200">
-      <div className="w-[375px] h-[812px] bg-white rounded-2xl shadow-xl px-6 py-8 flex flex-col justify-between">
-
-        <div>
-          <h1 className="text-2xl font-bold text-gray-800 mb-6">
+    <div className="min-h-[100dvh] flex items-center bg-white justify-center ">
+      <div className="w-[375px] h-[812px]    flex bg-gray-100 flex-col overflow-hidden">
+        <div className="flex-1 overflow-y-auto px-6 pt-8">
+          <h1 className="text-[30px] font-bold text-gray-900 leading-10 mb-10">
             Create your <br /> PopX account
           </h1>
 
@@ -37,23 +36,25 @@ function Register() {
               navigate("/account", { state: values });
             }}
           >
-            {({ errors, touched }) => (
-              <Form className="space-y-4">
-
-             
-                <div>
-                  <label className="text-purple-600 text-sm font-medium">
+            {() => (
+              <Form className="space-y-5">
+                <div className="relative">
+                  <label className="absolute -top-2 left-3 bg-gray-100 px-1 text-[14px] font-[500] text-purple-600">
                     Full Name*
                   </label>
                   <Field
                     name="fullName"
                     className="w-full mt-1 px-4 py-3 border rounded-lg text-sm border-gray-300 focus:ring-2 focus:ring-purple-500 outline-none"
                   />
-                  <ErrorMessage name="fullName" component="div" className="text-red-500 text-xs mt-1" />
+                  <ErrorMessage
+                    name="fullName"
+                    component="div"
+                    className="text-red-500 text-xs mt-1"
+                  />
                 </div>
 
-                <div>
-                  <label className="text-purple-600 text-sm font-medium">
+                <div className="relative">
+                  <label className="absolute -top-2 left-3 bg-gray-100 px-1 text-[14px] font-[500] text-purple-600">
                     Phone number*
                   </label>
                   <Field
@@ -62,8 +63,8 @@ function Register() {
                   />
                 </div>
 
-                <div>
-                  <label className="text-purple-600 text-sm font-medium">
+                <div className="relative">
+                  <label className="absolute -top-2 left-3 bg-gray-100 px-1 text-[14px] font-[500] text-purple-600">
                     Email address*
                   </label>
                   <Field
@@ -73,9 +74,8 @@ function Register() {
                   />
                 </div>
 
-        
-                <div>
-                  <label className="text-purple-600 text-sm font-medium">
+                <div className="relative">
+                  <label className="absolute -top-2 left-3 bg-gray-100 px-1 text-[14px] font-[500] text-purple-600">
                     Password*
                   </label>
                   <Field
@@ -85,9 +85,8 @@ function Register() {
                   />
                 </div>
 
-     
-                <div>
-                  <label className="text-purple-600 text-sm font-medium">
+                <div className="relative">
+                  <label className="absolute -top-2 left-3 bg-gray-100 px-1 text-[14px] font-[500] text-purple-600">
                     Company name
                   </label>
                   <Field
@@ -96,37 +95,45 @@ function Register() {
                   />
                 </div>
 
-           
-                <div>
-                  <label className="text-gray-700 text-sm font-medium">
+                <div className="relative">
+                  <label className="text-[14px] font-[500] text-gray-700">
                     Are you an Agency?*
                   </label>
-                  <div className="flex items-center gap-6 mt-2">
-                    <label className="flex items-center gap-2">
-                      <Field type="radio" name="agency" value="Yes" className="accent-purple-600" />
+                  <div className="flex items-center gap-6 mt-3">
+                    <label className="flex items-center gap-2 text-sm">
+                      <Field
+                        type="radio"
+                        name="agency"
+                        value="Yes"
+                        className="accent-purple-600"
+                      />
                       Yes
                     </label>
 
-                    <label className="flex items-center gap-2">
-                      <Field type="radio" name="agency" value="No" className="accent-purple-600" />
+                    <label className="flex items-center gap-2 text-sm">
+                      <Field
+                        type="radio"
+                        name="agency"
+                        value="No"
+                        className="accent-purple-600"
+                      />
                       No
                     </label>
                   </div>
                 </div>
-
-      
-                <button
-                  type="submit"
-                  className="w-full mt-6 py-3 rounded-lg text-white font-medium bg-gradient-to-r from-purple-600 to-purple-500 hover:opacity-90 transition"
-                >
-                  Create Account
-                </button>
-
               </Form>
             )}
           </Formik>
         </div>
 
+        <div className="px-6 pb-6 pt-3">
+          <button
+            onClick={() => navigate("/account")}
+            className="w-full py-3 rounded-lg text-white font-medium bg-gradient-to-r bg-[#9249e7]"
+          >
+            Create Account
+          </button>
+        </div>
       </div>
     </div>
   );
