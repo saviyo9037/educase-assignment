@@ -5,26 +5,25 @@ function Home() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gray-200 flex justify-center">
-
-      {/* Mobile container */}
-      <div className="
-        w-full
-        sm:w-[375px]
-        min-h-screen
-        sm:min-h-[812px]
-        bg-white
-        sm:rounded-3xl
-        sm:shadow-xl
-        flex
-        flex-col
-      ">
-
-        {/* This pushes content down naturally */}
+    <div className="min-h-screen bg-gray-200 flex items-center justify-center">
+      
+      <div
+        className="
+          w-[375px]
+          h-[812px]
+          bg-white
+          rounded-3xl
+          shadow-2xl
+          flex
+          flex-col
+          overflow-hidden
+        "
+      >
+        
         <div className="flex-grow"></div>
 
         <div className="px-6 pb-8">
-
+          
           <h2 className="text-[22px] font-semibold text-gray-900">
             Welcome to PopX
           </h2>
@@ -53,9 +52,7 @@ function Home() {
             </button>
 
           </div>
-
         </div>
-
       </div>
     </div>
   );
