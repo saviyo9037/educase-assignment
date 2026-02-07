@@ -1,45 +1,130 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 
-function Home() {
+function Register() {
   const navigate = useNavigate();
 
+  const validationSchema = Yup.object({
+    fullName: Yup.string().required("Full name is required"),
+    phone: Yup.string().required("Phone number is required"),
+    email: Yup.string().email("Invalid email").required("Email is required"),
+    password: Yup.string().required("Password is required"),
+    agency: Yup.string().required("Please select an option"),
+  });
+
   return (
-    <div className="h-screen flex items-center justify-center bg-gray-200 overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center bg-gray-200">
+      <div className="w-[375px] h-[812px] bg-white rounded-2xl shadow-xl px-6 py-8 flex flex-col justify-between">
+
+        <div>
+          <h1 className="text-2xl font-bold text-gray-800 mb-6">
+            Create your <br /> PopX account
+          </h1>
+
+          <Formik
+            initialValues={{
+              fullName: "",
+              phone: "",
+              email: "",
+              password: "",
+              company: "",
+              agency: "Yes",
+            }}
+            validationSchema={validationSchema}
+            onSubmit={(values) => {
+              navigate("/account", { state: values });
+            }}
+          >
+            {({ errors, touched }) => (
+              <Form className="space-y-4">
+
+             
+                <div>
+                  <label className="text-purple-600 text-sm font-medium">
+                    Full Name*
+                  </label>
+                  <Field
+                    name="fullName"
+                    className="w-full mt-1 px-4 py-3 border rounded-lg text-sm border-gray-300 focus:ring-2 focus:ring-purple-500 outline-none"
+                  />
+                  <ErrorMessage name="fullName" component="div" className="text-red-500 text-xs mt-1" />
+                </div>
+
+                <div>
+                  <label className="text-purple-600 text-sm font-medium">
+                    Phone number*
+                  </label>
+                  <Field
+                    name="phone"
+                    className="w-full mt-1 px-4 py-3 border rounded-lg text-sm border-gray-300 focus:ring-2 focus:ring-purple-500 outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-purple-600 text-sm font-medium">
+                    Email address*
+                  </label>
+                  <Field
+                    name="email"
+                    type="email"
+                    className="w-full mt-1 px-4 py-3 border rounded-lg text-sm border-gray-300 focus:ring-2 focus:ring-purple-500 outline-none"
+                  />
+                </div>
+
+        
+                <div>
+                  <label className="text-purple-600 text-sm font-medium">
+                    Password*
+                  </label>
+                  <Field
+                    name="password"
+                    type="password"
+                    className="w-full mt-1 px-4 py-3 border rounded-lg text-sm border-gray-300 focus:ring-2 focus:ring-purple-500 outline-none"
+                  />
+                </div>
+
+     
+                <div>
+                  <label className="text-purple-600 text-sm font-medium">
+                    Company name
+                  </label>
+                  <Field
+                    name="company"
+                    className="w-full mt-1 px-4 py-3 border rounded-lg text-sm border-gray-300 focus:ring-2 focus:ring-purple-500 outline-none"
+                  />
+                </div>
+
+           
+                <div>
+                  <label className="text-gray-700 text-sm font-medium">
+                    Are you an Agency?*
+                  </label>
+                  <div className="flex items-center gap-6 mt-2">
+                    <label className="flex items-center gap-2">
+                      <Field type="radio" name="agency" value="Yes" className="accent-purple-600" />
+                      Yes
+                    </label>
+
+                    <label className="flex items-center gap-2">
+                      <Field type="radio" name="agency" value="No" className="accent-purple-600" />
+                      No
+                    </label>
+                  </div>
+                </div>
+
       
-      <div className="w-[375px] h-full max-h-[812px] bg-white rounded-3xl shadow-xl flex flex-col justify-end overflow-hidden">
+                <button
+                  type="submit"
+                  className="w-full mt-6 py-3 rounded-lg text-white font-medium bg-gradient-to-r from-purple-600 to-purple-500 hover:opacity-90 transition"
+                >
+                  Create Account
+                </button>
 
-        <div className="px-6 pb-8">
-
-          <h2 className="text-[22px] font-semibold text-gray-900">
-            Welcome to PopX
-          </h2>
-
-          <p className="text-gray-500 mt-3 text-sm leading-6">
-            Lorem ipsum dolor sit amet,
-          </p>
-          <p className="text-gray-500 text-sm leading-6">
-            consectetur adipiscing elit,
-          </p>
-
-          <div className="mt-8 flex flex-col gap-4">
-            
-            <button
-              onClick={() => navigate("/register")}
-              className="w-full py-3 rounded-lg text-white font-medium bg-gradient-to-r from-purple-600 to-purple-500"
-            >
-              Create Account
-            </button>
-
-            <button
-              onClick={() => navigate("/login")}
-              className="w-full py-3 rounded-lg font-medium bg-purple-200 text-purple-800"
-            >
-              Already Registered? Login
-            </button>
-
-          </div>
-
+              </Form>
+            )}
+          </Formik>
         </div>
 
       </div>
@@ -47,4 +132,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Register;
