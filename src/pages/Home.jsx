@@ -5,25 +5,13 @@ function Home() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gray-200 flex items-center justify-center">
+    <div className="min-h-[100dvh] bg-gray-200 flex items-center justify-center">
       
-      <div
-        className="
-          w-[375px]
-          h-[812px]
-          bg-white
-          rounded-3xl
-          shadow-2xl
-          flex
-          flex-col
-          overflow-hidden
-        "
-      >
+      <div className="w-full max-w-[375px] min-h-[100dvh] bg-white flex flex-col">
         
         <div className="flex-grow"></div>
 
         <div className="px-6 pb-8">
-          
           <h2 className="text-[22px] font-semibold text-gray-900">
             Welcome to PopX
           </h2>
@@ -36,7 +24,6 @@ function Home() {
           </p>
 
           <div className="mt-8 flex flex-col gap-4">
-            
             <button
               onClick={() => navigate("/register")}
               className="w-full py-3 rounded-lg text-white font-medium bg-gradient-to-r from-purple-600 to-purple-500"
@@ -50,9 +37,9 @@ function Home() {
             >
               Already Registered? Login
             </button>
-
           </div>
         </div>
+
       </div>
     </div>
   );
